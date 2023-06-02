@@ -5,7 +5,7 @@ let handler = async(m, { conn, text }) => {
 
   await m.reply('Sedang di proses kak:b')
 	axios.get(`https://saipulanuar.ga/api/cerpen/random`).then ((res) => {
-	 	let hasil = `{res.data.result}`
+	 	let hasil = `${res.data.result}`
 
     conn.sendFile(m.chat, hasil, m)
 	})
