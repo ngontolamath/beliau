@@ -4,15 +4,15 @@ let handler = async(m, { conn, text }) => {
     //if (!text) return conn.reply(m.chat, 'Masukan parameter, Contoh *#lirik my love*', m)
 
   await m.reply('Sedang di proses kak:b')
-	axios.get(`http://docs-jojo.herokuapp.com/api/cersex`).then ((res) => {
-	 	let hasil = `~> *Judul* : ${res.data.result.judul}\n\n${res.data.result.cersex}`
+	axios.get(`https://saipulanuar.ga/api/cerpen/random`).then ((res) => {
+	 	let hasil = `{res.data.result}`
 
-    conn.sendFile(m.chat, res.data.result.img, 'carsex.jpeg', hasil, m)
+    conn.sendFile(m.chat, hasil, m)
 	})
 }
-handler.help = ['cersex']
+handler.help = ['cerdom (cerita random)']
 handler.tags = ['internet', 'fun', 'quotes']
-handler.command = /^cersex$/i
+handler.command = /^cerdom$/i
 
 
 module.exports = handler
