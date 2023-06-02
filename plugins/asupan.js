@@ -4,7 +4,7 @@ let handler = async(m, { conn, args }) => {
   await conn.sendFile(m.chat, pickRandom(asupan), 'asupan.mp4', 'ahhhh', m)
 }
 handler.help = ['asupan']
-handler.tags = ['tools']
+handler.tags = ['dewasa']
 handler.command = /^asupan$/i
 handler.owner = false
 handler.mods = false
