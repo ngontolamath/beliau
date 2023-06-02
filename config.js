@@ -73,7 +73,7 @@ global.author = 'Dhkzbot'
 
 
 ig: '-'
-global.wm = 'Dhkzbot'
+global.wm = 'E-Botz'
 global.watermark = wm
 global.botdate = '╭──────────═┅═─────────\n│◪ ${time}\n┊◪ ${week} ${date}\n╰──────────═┅═─────────'
 global.media = 'https://telegra.ph/file/e001198ced5650ef53d47.jpg'
