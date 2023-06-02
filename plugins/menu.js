@@ -4,7 +4,7 @@ let levelling = require('../lib/levelling')
 let tags = {
   'berita': '*berita*',
   'premium': '*Premium*',
-  'main': '*Main'*,
+  'main': '*Main*',
   'stres': '*Autis*',
   'asupan': '*Asupan*',
   'maker': '*Logo*',
