@@ -8,26 +8,26 @@ async function handler(m, { command, usedPrefix }) {
         case 'leave': {
             let room = Object.values(this.anonymous).find(room => room.check(m.sender))
             if (!room) {
-                await conn.sendBut(m.chat, '_Kamu tidak sedang berada di anonymous chat_ 👤', `${wm}`, 'Cari Partner', `${usedPrefix}start`)
+                await conn.reply(m.chat, '_Kamu tidak sedang berada di anonymous chat_ 👤', m)
                 throw false
             }
             m.reply('_Ok_')
             let other = room.other(m.sender)
-            if (other) await conn.sendBut(other, '_Partner meninggalkan chat 💬_', `${wm}`, 'Cari Partner', `${usedPrefix}start`)
+            if (other) await conn.sendMessage(other, '_Partner meninggalkan chat 💬_')
             delete this.anonymous[room.id]
             if (command === 'leave') break
         }
         case 'start': {
             if (Object.values(this.anonymous).find(room => room.check(m.sender))) {
-                await conn.sendBut(m.chat, '_Kamu masih berada di dalam anonymous chat, menunggu partner_ 👤', `${wm}`, 'Keluar', `${usedPrefix}leave`)
+                await conn.reply(m.chat, '_Kamu masih berada di dalam anonymous chat, menunggu partner_ 👤')
                 throw false
             }
             let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
             if (room) {
-                await conn.sendBut(room.a, '_Partner ditemukan! 🔎_', `${wm}`, 'Next', `${usedPrefix}next`)
+                await conn.sendMessage(room.a, '_Partner ditemukan! 🔎_')
                 room.b = m.sender
                 room.state = 'CHATTING'
-                await conn.sendBut(room.b, '_Partner ditemukan! 🔎_', `${wm}`, 'Next', `${usedPrefix}next`)
+                await conn.sendMessage(room.b, '_Partner ditemukan! 🔎_')
             } else {
                 let id = + new Date
                 this.anonymous[id] = {
@@ -42,7 +42,7 @@ async function handler(m, { command, usedPrefix }) {
                         return who === this.a ? this.b : who === this.b ? this.a : ''
                     },
                 }
-                await conn.sendBut(m.chat, '_Menunggu partner... 👤_', `${wm}`, 'Keluar', `${usedPrefix}leave`)
+                await conn.reply(m.chat, '_Menunggu partner... ketik .leave jika anda bosan')
             }
             break
         }
