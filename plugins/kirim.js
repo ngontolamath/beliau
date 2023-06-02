@@ -9,7 +9,7 @@ let [number, pesan] = text.split `|`
 
     let korban = `${number}`
     var nomor = m.sender
-    let spam1 = `*「 DARI OWNER 」*\n\nDari : Owner\nPesan : ${pesan}\n\n*_SembraniBotz_*`
+    let spam1 = `*「 DARI OWNER 」*\n\nDari : Owner\nPesan : ${pesan}\n\n*_E-Botz_*`
 
     conn.sendMessage(korban + '@s.whatsapp.net', spam1, MessageType.text)
 
