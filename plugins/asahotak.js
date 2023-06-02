@@ -26,7 +26,7 @@ Bonus: ${poin} XP
     poin,
     setTimeout(async () => {
       if (conn.asahotak[id]) {
-        await conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${data.jawaban}*`, message);
+        await conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, message);
         delete conn.asahotak[id];
       }
     }, timeout)
