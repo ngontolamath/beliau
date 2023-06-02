@@ -3,7 +3,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
      m.reply('tunggu...')
   let res = await (await fetch('https://raw.githubusercontent.com/Luigmntng/RESTAPI/master/data/cosplay.json')).json()
   let cosser = res[Math.floor(Math.random() * res.length)]
-  await conn.sendButtonImg(m.chat, cosser, 'ini 3d ?', 'By Lui', 'Next', `.cosplay`, m, false)
+  await conn.sendFile(m.chat, cosser, 'cosser.jpg', '3D', m, false)
 }
 handler.help = ['cosplay']
 handler.tags = ['anime']
