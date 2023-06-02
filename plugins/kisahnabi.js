@@ -3,8 +3,8 @@ let handler = async(m, { conn, text }) => {
 
     if (!text) return conn.reply(m.chat, 'Masukan Nama Nabi nya\nContoh : .kisah adam', m)
 
-	axios.get(`https://yog-apikey.herokuapp.com/api/muslim/kisahnabi?nabi=${text}&apikey=YogGanz`).then ((res) => {
-	 	let hasil = `*NAMA* : ${res.data.result.name}\n*TAHUN KELAHIRAN* : ${res.data.result.kelahiran}\n*WAFAT DI USIA* : ${res.data.result.wafat_usia}\n*KISAH* : ${res.data.result.kisah}`
+	axios.get(`https://saipulanuar.ga/api/muslim/kisahnabi?nabi=${text}`).then ((res) => {
+	 	let hasil = `*NAMA* : ${res.data.result.name}\n*TAHUN KELAHIRAN* : ${res.data.result.thn_kelahiran}\n*KISAH* : ${res.data.result.description}`
 
     conn.reply(m.chat, hasil, m)
 	})
