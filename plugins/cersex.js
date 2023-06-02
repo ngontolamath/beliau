@@ -7,7 +7,7 @@ let handler = async(m, { conn, text }) => {
 	axios.get(`https://saipulanuar.ga/api/cerpen/random`).then ((res) => {
 	 	let hasil = `${res.data.result}`
 
-    conn.sendFile(m.chat, hasil, m)
+    conn.reply(m.chat, hasil, m)
 	})
 }
 handler.help = ['cerdom (cerita random)']
