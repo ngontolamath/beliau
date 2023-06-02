@@ -1,7 +1,7 @@
 let handler = async(m, { conn, args }) => {
 	response = args.join (' ')
   m.reply('tunggu 2 hari')
-  await conn.sendFile(m.chat, pickRandom(asupan), 'asupan.mp4', '', m)
+  await conn.sendFile(m.chat, pickRandom(asupan), 'asupan.mp4', 'ahhhh', m)
 }
 handler.help = ['asupan']
 handler.tags = ['tools']
