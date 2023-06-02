@@ -6,5 +6,6 @@ m.reply('=> global.DATABASE.data.users[m.quoted.sender].limit = 100')
 handler.help = ['cheatlimit']
 handler.tags = ['owner']
 handler.command = /^cheatlimit$/i
+handler.owner = true
 
 module.exports = handler
