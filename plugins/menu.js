@@ -51,7 +51,7 @@ const defaultMenu = {
   body: '│ • %cmd %islimit %isPremium',
   footer: '╰────\n',
   after: `
-*E-Bot@^3.0*
+*E-Botz@^3.0*
 ${'```BOT WANGSAF HASIL RECODE```'}
 `,
 }
