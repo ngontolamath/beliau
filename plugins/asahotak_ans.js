@@ -27,6 +27,4 @@ let handler = async function (m) {
     return true;
 };
 
-handler.exp = 0;
-
 module.exports = handler;
