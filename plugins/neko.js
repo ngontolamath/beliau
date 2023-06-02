@@ -5,7 +5,7 @@ m.reply(wait)
   if (!res.ok) throw await res.text()
   let json = await res.json()
   if (!json.url) throw 'Error!'
-  await conn.sendButtonImg(m.chat, json.url, 'Wibu dek', wm, 'Next', `.neko`, m)
+  await conn.sendFile(m.chat, json.url, 'neko.jpg', 'wibu kontol', m)
 
 }
 handler.help = ['neko']
