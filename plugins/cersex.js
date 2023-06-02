@@ -3,7 +3,7 @@ let handler = async(m, { conn, text }) => {
 
     //if (!text) return conn.reply(m.chat, 'Masukan parameter, Contoh *#lirik my love*', m)
 
-  await m.reply('Sedang di proses kak:b')
+  await m.reply('KsabarL')
 	axios.get(`https://saipulanuar.ga/api/cerpen/random`).then ((res) => {
 	 	let hasil = `${res.data.result}`
 
