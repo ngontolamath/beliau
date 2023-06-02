@@ -18,10 +18,10 @@ Ketik ${usedPrefix}ao untuk bantuan
 Bonus: ${poin} XP
     `.trim()
     conn.asahotak[id] = [
-        await conn.reply(m.chat, caption, wm, m),
+        await conn.reply(m.chat, caption, m),
         json, poin,
         setTimeout(async () => {
-            if (conn.asahotak[id]) await conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, conn.asahotak[id][0])
+            if (conn.asahotak[id]) await conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*)
             delete conn.asahotak[id]
         }, timeout)
     ]
