@@ -60,7 +60,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let package = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
     let { exp, limit, level, role } = global.db.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
-    let gambar = global.gambar
+    let gambar = fs.readFileSync(`./src/uh.jpg`)
     let wm = global.wm
     let name = conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
@@ -151,7 +151,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     //conn.reply(m.chat, text.trim(), m)
-    await conn.reply(m.chat, text.trim(), m)
+    await conn.sendFile(m.chat, gambar, 'gambar.jpg', text.trim(), m)
   } catch (e) {
   conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
