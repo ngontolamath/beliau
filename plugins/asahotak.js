@@ -18,10 +18,10 @@ Ketik ${usedPrefix}ao untuk bantuan
 Bonus: ${poin} XP
     `.trim()
     conn.asahotak[id] = [
-        await conn.sendBut(m.chat, caption, wm, 'Bantuan', '.ao', m),
+        await conn.reply(m.chat, caption, wm, m),
         json, poin,
         setTimeout(async () => {
-            if (conn.asahotak[id]) await conn.sendBut(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, wm, 'Asah Otak', '.asahotak', conn.asahotak[id][0])
+            if (conn.asahotak[id]) await conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, conn.asahotak[id][0])
             delete conn.asahotak[id]
         }, timeout)
     ]
