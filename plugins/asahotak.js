@@ -9,10 +9,10 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.asahotak[id][0]);
     throw false;
   }
-  let src = await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/asahotak.json');
-  let json = await src.json();
-  let randomIndex = Math.floor(Math.random() * json.length);
-  let data = json[randomIndex];
+  let res = await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/asahotak.json');
+   if (!res.ok) throw eror
+    let data = await res.json()
+    let json = data[Math.floor(Math.random() * data.length)]
   let caption = `
 ${json.soal}
 Timeout *${(timeout / 1000).toFixed(2)} detik*
