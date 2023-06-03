@@ -14,9 +14,9 @@ let handler = async (m, { conn, command }) => {
   }
 }
 
-handler.help = ['ahegao', 'ass', 'bdsm', 'blowjob', 'boobjob', 'cum', 'creampie', 'cuckold', 'ero', 'elves', 'femdom', 'foot', 'gangbang', 'glasses', 'hentai', 'incest', 'masturbation', 'pantsu', 'orgy', 'tentacles', 'thighs', 'uniform', 'pussy', 'yuri']
+handler.help = ['ahegao', 'ass', 'bdsm', 'blowjob', 'boobjob', 'cum', 'creampie', 'cuckold', 'ero', 'elves', 'femdom', 'foot', 'gangbang', 'glasses', 'hentai', 'incest', 'masturbation', 'neko', 'pantsu', 'orgy', 'tentacles', 'thighs', 'uniform', 'pussy', 'yuri']
 handler.tags = ['dewasa', 'premium']
-handler.command = /^(ahegao|ass|bdsm|blowjob|boobjob|cum|creampie|cuckold|ero|elves|femdom|foot|gangbang|glasses|hentai|incest|masturbation|pantsu|orgy|tentacles|thighs|uniform|pussy|yuri)$/i
+handler.command = /^(ahegao|ass|bdsm|blowjob|boobjob|cum|creampie|cuckold|ero|elves|femdom|foot|gangbang|glasses|hentai|incest|masturbation|neko|pantsu|orgy|tentacles|thighs|uniform|pussy|yuri)$/i
 handler.private = false
 handler.premium = true
 handler.register = false
