@@ -6,7 +6,7 @@ let handler = async (m, { conn, participants, command, usedPrefix }) => {
     let jodoh = member[Math.floor(Math.random() * member.length)]
     let jawab = `@${orang.replace(/@.+/, '')} ❤️ @${jodoh.replace(/@.+/, '')}`.trim()
     let mentionedJid = [orang, jodoh]
-    await conn.sendBut(m.chat, jawab, '', `${command}`, usedPrefix + command, m, { contextInfo: { mentionedJid } })
+    await conn.reply(m.chat, jawab, m, { contextInfo: { mentionedJid } })
 }
 handler.help = ['jodohin', 'jodohku', 'jadian']
 handler.tags = ['fun']
