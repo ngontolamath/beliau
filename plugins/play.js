@@ -25,12 +25,13 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
   if (yt === false) throw 'semua server gagal'
   if (yt2 === false) throw 'semua server gagal'
   let { dl_link, thumb, title, filesize, filesizeF } = yt
-  await conn.send2ButtonImg(m.chat, await (await fetch(thumb)).buffer(), `
+  await conn.sendFile(m.chat, await (await fetch(thumb)).buffer(), 'thumbnail
+.jpg', `
 *Judul:* ${title}
 *Ukuran File Audio:* ${filesizeF}
 *Ukuran File Video:* ${yt2.filesizeF}
 *Server y2mate:* ${usedServer}
-`.trim(), wm, 'Audio Nya Bang', `.yta ${vid.url}`, 'Video Nya Bang', `.yt ${vid.url}`)
+`.trim())
 }
 handler.help = ['play'].map(v => v + ' <pencarian>')
 handler.tags = ['downloader']
