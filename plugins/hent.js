@@ -3,7 +3,7 @@ const fetch = require('node-fetch')
 let handler = async (m, { conn, command }) => {
   m.reply('Ksabar')
   try {
-    let res = await fetch(`https://raw.githubusercontent.com/NzrlAfndi/Databasee/main/nsfw/${command}.json`)
+    let res = await fetch(`https://raw.githubusercontent.com/KazukoGans/database/main/nsfw/${command}.json`)
     let data = await res.json()
     let json = data[Math.floor(Math.random() * data.length)]
   
@@ -14,9 +14,9 @@ let handler = async (m, { conn, command }) => {
   }
 }
 
-handler.help = ['ahegao', 'ass', 'bdsm', 'blowjob', 'boobjob', 'cum', 'creampie', 'cuckold', 'ero', 'elves', 'femdom', 'foot', 'gangbang', 'glasses', 'hentai', 'incest', 'masturbation', 'pantsu', 'orgy', 'tentacles', 'thighs', 'uniform', 'vagina', 'yuri']
+handler.help = ['ahegao', 'ass', 'bdsm', 'blowjob', 'boobjob', 'cum', 'creampie', 'cuckold', 'ero', 'elves', 'femdom', 'foot', 'gangbang', 'glasses', 'hentai', 'incest', 'masturbation', 'pantsu', 'orgy', 'tentacles', 'thighs', 'uniform', 'pussy', 'yuri']
 handler.tags = ['dewasa']
-handler.command = /^(ahegao|ass|bdsm|blowjob|boobjob|cum|creampie|cuckold|ero|elves|femdom|foot|gangbang|glasses|hentai|incest|masturbation|pantsu|orgy|tentacles|thighs|uniform|vagina|yuri)$/i
+handler.command = /^(ahegao|ass|bdsm|blowjob|boobjob|cum|creampie|cuckold|ero|elves|femdom|foot|gangbang|glasses|hentai|incest|masturbation|pantsu|orgy|tentacles|thighs|uniform|pussy|yuri)$/i
 handler.private = false
 handler.premium = true
 handler.register = false
