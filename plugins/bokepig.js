@@ -6,8 +6,9 @@ async function getRandom(url) {
          conn.sendFile(m.chat, `https://saipulanuar.ga/api/bokepig`, 'bokepig.jpg', `cuma gambar`, m)
     }
 handler.help = ['bokepig (bkp image)']
-handler.tags = ['dewasa']
+handler.tags = ['dewasa', 'premium']
 handler.command = /^(bokepig)$/i
+handler.premium = true
 
 module.exports = handler
     
