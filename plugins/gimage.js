@@ -7,13 +7,13 @@ let handler  = async (m, { conn, args, text }) => {
   let results = await gis(text) || []
   let { url, width, height } = pickRandom(results) || {}
   if (!url) return m.reply('Not Found')
-  conn.sendButtonImg(m.chat, url, `
+  conn.sendFile(m.chat, url, 'img.jpg', `
 *── 「 GOOGLE IMAGE 」 ──*
 
 ${text}
 ➸ *width*: ${width}
 ➸ *height*: ${height}
-`.trim(), wm, 'NEXT', `.gimage ${text}`, m)
+`.trim(), m)
 }
 handler.help = ['image <query>', 'gimage <query>', 'googleimage <query>']
 handler.tags = ['internet']
