@@ -6,10 +6,9 @@ let handler = async (m, { conn, text }) => {
   }
 } : {})
 }
-handler.help = ['apakah <teks>?']
+handler.help = ['apakah <teks>?', 'apa <teks>?]
 handler.tags = ['kerang']
-handler.customPrefix = /(\?$)/
-handler.command = /^apakah$/i
+handler.command = /^(apakah|apa)$/i
 handler.owner = false
 
 handler.fail = null
