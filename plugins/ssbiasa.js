@@ -14,9 +14,9 @@ let handler = async (m, { conn, command, args }) => {
   let ss = await (await fetch('https://saipulanuar.ga/api/download/ssweb?url=' + encodeURIComponent(url))).buffer()
   conn.sendFile(m.chat, ss, 'screenshot.png', url, m)
 }
-handler.help = ['ssbiasa', 'ss'].map(v => v + ' <url>')
+handler.help = ['ssweb', 'ss'].map(v => v + ' <url>')
 handler.tags = ['internet']
-handler.command = /^(ss)$/i
+handler.command = /^(ss|ssweb)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
