@@ -1,10 +1,8 @@
 let fetch = require('node-fetch')
-let handler = async (m, { conn, args }) => {
-   response = args.join(' ').split('|')
-  if (!args[0]) throw 'Masukkan Teks'
-  m.reply('*Wait ngab*\nProses...')
-  let res = `http://hadi-api.herokuapp.com/api/textpro/3d-underwater-text?teks=${response[0]}&teks2=Elyas`
-  conn.sendFile(m.chat, res, 'underwatee.jpg', `Sudah jadi`, m, false)
+let handler = async (m, {conn, text}) => {
+   m.reply('Ksabar')
+  let res = `https://saipulanuar.ga/api/textpro/drop-water?text=${text}`
+  conn.sendFile(m.chat, res, 'underwatee.jpg', `Sudah jadi`, m)
 }
 handler.help = ['underwater'].map(v => v + ' <text>')
 handler.tags = ['maker']
