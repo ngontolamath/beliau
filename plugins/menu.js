@@ -2,7 +2,6 @@ let fs = require('fs')
 let path = require('path')
 let levelling = require('../lib/levelling')
 let tags = {
-  'berita': '*berita*',
   'premium': '*Premium*',
   'main': '*Main*',
   'stres': '*Autis*',
