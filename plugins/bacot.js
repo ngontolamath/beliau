@@ -1,7 +1,7 @@
 let axios = require("axios");
 let handler = async(m, { conn, text }) => {
-	axios.get(`https://saipulanuar.ga/api/fakta`).then ((res) => {
-	 	let hasil = `${res.data.result}`
+	axios.get(`https://saipulanuar.ga/api/quotes`).then ((res) => {
+	 	let hasil = `${res.data.result.quotes}`
 
     conn.reply(m.chat, hasil, m)
 	})
