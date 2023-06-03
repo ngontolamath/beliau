@@ -4,14 +4,14 @@ let handler = async (m, { conn, command, args }) => {
       conn.reply(m.chat, '*Tobat woy*', m)
       reject
   }
-  if (args[0] === 'Nhentai.net') {
+  if (args[0] === 'xnxx.com') {
       conn.reply(m.chat, '*Tobat woy*', m)
       reject
   }
   let full = /f$/i.test(command)
   if (!args[0]) return conn.reply(m.chat, 'Tidak ada url', m)
   let url = /https?:\/\//.test(args[0]) ? args[0] : 'https://' + args[0]
-  let ss = await (await fetch('https://hardianto.xyz/api/tools/ssweb?url=' + encodeURIComponent(url) + '&apikey=hardianto')).buffer()
+  let ss = await (await fetch('https://saipulanuar.ga/api/download/ssweb?url=' + encodeURIComponent(url))).buffer()
   conn.sendFile(m.chat, ss, 'screenshot.png', url, m)
 }
 handler.help = ['ssbiasa', 'ss'].map(v => v + ' <url>')
