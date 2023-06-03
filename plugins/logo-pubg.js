@@ -1,8 +1,8 @@
-let handler  = async (m, {conn, text}) => {
-
-if (!text[0]) return conn.reply(m.chat, 'Masukkan 2 teks/nContoh: .pubg Faisal Tolol', m)
-  if (!text[1]) return conn.reply(m.chat, 'Masukkan 2 teks/nContoh: .pubg Faisal Tolol', m)
-    conn.sendFile(m.chat, `https://saipulanuar.ga/api/maker/pubeje?text=${text[0]}&text2=${text[1]}`, 'joker.jpg', `awkwok lawak badut`, m)
+let fetch = require('node-fetch')
+let handler = async (m, {conn, args, response}) => {
+   response = args.join(' ').split('|')
+  if (!args[0]) throw 'Masukkan 2 kata\nContoh: Faisal|tolol'
+    conn.sendFile(m.chat, `https://saipulanuar.ga/api/maker/pubeje?text=${response[0]}&text2=${response[1]}`, 'pabji.jpg', `awkwok lawak komto`, m)
 
 }
 
