@@ -1,4 +1,4 @@
-let handler = async (m, { conn, usedPrefix }) => {
+let handler = async (m, { conn }) => {
     let id = m.chat
     conn.absen = conn.absen ? conn.absen : {}
     if (!(id in conn.absen)) {
@@ -10,7 +10,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     const wasVote = absen.includes(m.sender)
     if (wasVote) throw 'Kamu sudah absen!'
     absen.push(m.sender)
-    let d = new Date
+    let d = new Date()
     let date = d.toLocaleDateString('id', {
         day: 'numeric',
         month: 'long',
@@ -24,8 +24,9 @@ ${conn.absen[id][2]}
 ├ Total: ${absen.length}
 ${list}
 └────`.trim()
-    await conn.reply(m.chat, caption, m, { contextInfo: { mentionedJid: conn.parseMention(caption) } })
+    await conn.reply(m.chat, caption, m, { contextInfo: { mentionedJid: [m.sender] } })
 }
+
 handler.help = ['absen']
 handler.tags = ['absen']
 handler.command = /^(absen|hadir)$/i
