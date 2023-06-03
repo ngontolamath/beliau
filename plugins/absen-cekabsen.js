@@ -11,7 +11,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     })
     let absen = conn.absen[id][1]
     let list = absen.map((v, i) => `│ ${i + 1}. @${v.split`@`[0]}`).join('\n')
-    conn.sendBut(m.chat, `*「 ABSEN 」*
+    conn.reply(m.chat, `*「 ABSEN 」*
 
 Tanggal: ${date}
 ${conn.absen[id][2]}
@@ -22,7 +22,7 @@ ${conn.absen[id][2]}
 ${list}
 │ 
 └────
-`, wm, 'Absen', '.absen', m, { contextInfo: { mentionedJid: absen } })
+`, m, { contextInfo: { mentionedJid: absen } })
 }
 handler.help = ['cekabsen']
 handler.tags = ['absen']
