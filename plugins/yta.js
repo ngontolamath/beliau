@@ -1,20 +1,43 @@
-let axios = require("axios");
-let handler = async(m, { conn, text }) => {
+const axios = require("axios");
 
-    if (!text) return conn.reply(m.chat, 'Urlnya mana deks', m)
+let handler = async (m, { conn, text }) => {
 
-	axios.get(`https://saipulanuar.ga/api/download/ytmp3?url=${text}`).then ((res) => {
-	 	let hasil = `*Judul*: ${res.data.result.title}\n*Channel*: ${res.data.result.channel}\n*Upload*: ${res.data.result.published}`
+  if (!text) {
 
-    conn.sendFile(m.chat, res.data.result.url, 'error.mp3', '', m)
-	})
+    return conn.reply(m.chat, 'URL tidak ditemukan', m);
+
+  }
+
+  try {
+
+    const response = await axios.get(`https://saipulanuar.ga/api/download/ytmp3?url=${text}`);
+
+    const result = response.data.result;
+
+    const message = `
+
+*Judul*: ${result.title}
+
+*Channel*: ${result.channel}
+
+*Upload*: ${result.published}
+
+    `;
+
+    conn.sendFile(m.chat, result.url,  0,0,m,true, {ptt:true })
+
+  } catch (error) {
+    console.log(error);
+    conn.reply(m.chat, 'Terjadi kesalahan saat mengunduh audio', m);
+
+  }
 }
-handler.help = ['mp3','a'].map(v => 'yt' + v + ` <url>`)
-handler.tags = ['downloader']
-handler.command = /^yt(a|mp3)$/i
+handler.help = ['mp3', 'a'].map(v => 'yt' + v + ' <url>');
+handler.tags = ['downloader'];
+handler.command = /^yt(a|mp3)$/i;
+handler.fail = null;
+handler.exp = 0;
+handler.limit = true;
 
-handler.fail = null
-handler.exp = 0
-handler.limit = true
+module.exports = handler;
 
-module.exports = handler
