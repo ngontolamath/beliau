@@ -1,25 +1,13 @@
-let axios = require('axios')
-const fetch = require('node-fetch')
-let limit = 1024354
-const { servers, yta } = require('../lib/y2mate')
-let handler = async (m, { conn, args, isPrems, isOwner }) => {
-  if (!args || !args[0]) throw 'Uhm... urlnya mana?'
-  let chat = global.db.data.chats[m.chat]
-  let server = (args[1] || servers[0]).toLowerCase()
-  let { dl_link, thumb, title, filesize, filesizeF} = await yta(args[0], servers.includes(server) ? server : servers[0])
-  let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
-  let tumbnel = await await (await fetch(thumb)).buffer()
-  conn.sendFile(m.chat, thumb, 'thumbnail.jpg', `
-*Title:* ${title}
-*Filesize:* ${filesizeF}
-*${isLimit ? 'Pakai ': ''}Link:* ${await shortlink(dl_link)}
-`.trim(), m)
-  if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp3', `
-*Title:* ${title}
-*Filesize:* ${filesizeF}
-`.trim(), m, null, {
-  asDocument: chat.useDocument
-})
+let axios = require("axios");
+let handler = async(m, { conn, text }) => {
+
+    if (!text) return conn.reply(m.chat, 'Urlnya mana deks', m)
+
+	axios.get(`https://saipulanuar.ga/api/download/ytmp3?url=${text}`).then ((res) => {
+	 	let hasil = `*Judul*: ${res.data.result.title}\n*Channel*: ${res.data.result.channel}\n*Upload*: ${res.data.result.published}`
+
+    conn.sendFile(m.chat, res.data.result.url, 'error.mp3', '', m)
+	})
 }
 handler.help = ['mp3','a'].map(v => 'yt' + v + ` <url>`)
 handler.tags = ['downloader']
