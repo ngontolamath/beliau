@@ -8,7 +8,7 @@ let tags = {
   'asupan': '*Asupan*',
   'logo': '*Logo*',
   'maker': '*Logo 2*',
-  'game': '*Game*',
+  'game': '*Game* (kebanyakan error, gapercaya coba aja 1 1)',
   'dewasa': '*Sagnean tools*',
   'xp': '*Exp & Limit*',
   'textpro': '*textpro*',
