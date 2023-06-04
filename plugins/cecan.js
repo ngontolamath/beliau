@@ -3,4 +3,6 @@ let handler  = async (m, { conn }) => {
 }
 handler.help = ['random', 'hijaber', 'indonesia', 'malaysia', 'vietnam', 'thailand(error)', 'japan', 'korea', 'china']
 handler.tag = ['cecan']
-handler.command = /^(
+handler.command = /^(random|hijaber|indonesia|malaysia|vietnam|thailand|japan|korea|china)$/i
+
+module.exports = handler
