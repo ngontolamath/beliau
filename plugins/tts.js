@@ -23,9 +23,9 @@ let handler = async (m, { conn, args }) => {
     conn.sendFile(m.chat, res, 'tts.opus', null, m, true)
   }
 }
-handler.help = ['tts <teks>']
+handler.help = ['tts <teks>', 'say <teks>']
 handler.tags = ['tools']
-handler.command = /^tts$/i
+handler.command = /^(tts|say)$/i
 module.exports = handler
 
 function tts(text, lang = 'id') {
