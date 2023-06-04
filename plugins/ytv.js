@@ -13,7 +13,6 @@ let handler = async (m, { conn, text }) => {
 `;
   conn.sendFile(m.chat, result.url, 'error.mp4', message, m);
   } catch (error) {
-
     console.log(error);
     conn.reply(m.chat, 'Terjadi kesalahan', m)
   }
