@@ -5,7 +5,7 @@ let tags = {
   'premium': '*Premium*',
   'main': '*Main*',
   'stres': '*Autis*',
-  'asupan': '*Asupan*',
+  'cecan': '*Cecan*',
   'logo': '*Logo*',
   'maker': '*Logo 2*',
   'game': '*Game* (kebanyakan error, gapercaya coba aja 1 1)',
