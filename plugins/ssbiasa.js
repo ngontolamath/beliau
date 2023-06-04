@@ -4,10 +4,6 @@ let handler = async (m, { conn, command, args }) => {
       conn.reply(m.chat, '*Tobat woy*', m)
       reject
   }
-  if (args[0] === 'xnxx.com') {
-      conn.reply(m.chat, '*Tobat woy*', m)
-      reject
-  }
   let full = /f$/i.test(command)
   if (!args[0]) return conn.reply(m.chat, 'Tidak ada url', m)
   let url = /https?:\/\//.test(args[0]) ? args[0] : 'https://' + args[0]
