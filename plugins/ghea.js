@@ -7,7 +7,7 @@ let handler = async(m, { conn }) => {
   conn.sendFile(m.chat, json.result.url, '', 'Follow ig sya yh kak @ahmdlui', m)
 }
 handler.help = ['ghea']
-handler.tags = ['asupan']
+handler.tags = ['cecan']
 handler.command = /^(ghea)$/i
 //MADE IN ERPAN 1140 BERKOLABORASI DENGAN BTS
 module.exports = handler
