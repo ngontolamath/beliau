@@ -1,6 +1,6 @@
-let handler = async (m, { conn }) => {
+let handler = async (m, {conn, command}) => {
   try {
-    conn.sendFile(m.chat, `https://saipulanuar.ga/api/cecan/${m.command}`, 'foto.jpg', 'ahhhh', m)
+    conn.sendFile(m.chat, `https://saipulanuar.ga/api/cecan/${command}`, 'foto.jpg', 'ahhhh', m)
   } catch (error) {
     console.log(error)
     conn.reply(m.chat, 'Terjadi kesalahan', m)
