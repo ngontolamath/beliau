@@ -11,7 +11,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let url = await uploadImage(img)
     meme = `https://api.memegen.link/images/custom/${encodeURIComponent(atas ? atas : '')}/${encodeURIComponent(bawah ? bawah : '')}.png?background=${url}`
 try {
-conn.sendImageAsSticker(m.chat, meme, m, { packname: "", author: "Recode by Lui" })
+conn.sendImageAsSticker(m.chat, meme, m, { packname: "${global.wm}", author: "by Bedulbot" })
   } catch (e) {
     m.reply('gagal membuat stiker, Mencoba Mengirim gambar')
     await conn.sendFile(m.chat, meme, 'image.png', 'Nih Banh', m)
