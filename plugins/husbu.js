@@ -1,8 +1,7 @@
 let fetch = require('node-fetch')
 let handler = async (m, { conn, usedPrefix, command }) => {
-m.reply(wait)
-  await conn.sendButtonImg(m.chat, `https://api.zacros.my.id/randomimg/husbu`, 'yahaha', 'gantengan owner', 'Next', `.husbu`, m)
-
+m.reply(KsabarL)
+  let res = await fetch
 }
 handler.help = ['husbu']
 handler.tags = ['anime']
