@@ -19,7 +19,7 @@ Ketik ${usedPrefix}hint untuk hint
 Bonus: ${poin} XP
     `.trim()
   conn.tebakgambar[id] = [
-    await conn.sendFile(m.chat, json.img, 'gambar.jpg', m),
+    await conn.sendFile(m.chat, json.img, 'gambar.jpg', caption, m),
     json, poin,
     setTimeout(() => {
       if (conn.tebakgambar[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, conn.tebakgambar[id][0])
