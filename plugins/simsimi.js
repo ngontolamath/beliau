@@ -1,8 +1,11 @@
-let axios = require("axios");
+const fetch = require('node-fetch');
 let handler = async(m, { conn, text, usedPrefix, command }) => {
   if (!text) return conn.reply(m.chat, 'Masukkan teks/nContoh: .${command} halo dek',  m)
-	axios.get(`https://saipulanuar.ga/api/f/simi?text=${text}`).then ((res) => {	
-    let hasil = `${res.data.result}`
+	
+
+	
+
+	
     conn.reply(m.chat, hasil, m)
 	})
 }
