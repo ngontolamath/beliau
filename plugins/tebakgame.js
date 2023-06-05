@@ -8,7 +8,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.tebakgame[id][0])
     throw false
   }
-  let src = await (await fetch('https://raw.githubusercontent.com/ngontolamath/database/master/games/tebakgame.json')).json()
+  let src = await (await fetch('https://raw.githubusercontent.com/ngontolamath/databasee/master/games/tebakgame.json')).json()
   let json = src[Math.floor(Math.random() * src.length)]
   let caption = `
   Game apakah ini?
