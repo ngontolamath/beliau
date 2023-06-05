@@ -18,10 +18,10 @@ Ketik ${usedPrefix}tebu untuk bantuan
 Bonus: ${poin} XP
     `.trim()
   conn.tebakkabupaten[id] = [
-    await conn.sendButtonImg(m.chat, json.url, caption, wm, 'Bantuan', '.tebu', m, false),
+    await conn.sendFile(m.chat, json.url, 'gambar.jpg', caption, m),
     json, poin,
     setTimeout(async () => {
-      if (conn.tebakkabupaten[id]) await conn.sendBut(m.chat, `Waktu habis!\nJawabannya adalah *${json.title}*`, wm, 'Tebak Kabupaten', '.tebakkabupaten', conn.tebakkabupaten[id][0])
+      if (conn.tebakkabupaten[id]) await conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.title}*`, conn.tebakkabupaten[id][0])
       delete conn.tebakkabupaten[id]
     }, timeout)
   ]
