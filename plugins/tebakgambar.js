@@ -2,7 +2,6 @@ let fetch = require('node-fetch')
 
 let timeout = 120000
 let poin = 500
-let src
 let handler = async (m, { conn, usedPrefix }) => {
   conn.tebakgambar = conn.tebakgambar ? conn.tebakgambar : {}
   let id = m.chat
@@ -10,9 +9,8 @@ let handler = async (m, { conn, usedPrefix }) => {
     conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.tebakgambar[id][0])
     throw false
   }
-  if (!src) src = await (await fetch(global.API('https://raw.githubusercontent.com', '/BochilTeam/database/master/games/tebakgambar.json'))).json()
+  let src = await (await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakgambar.json')).json()
   let json = src[Math.floor(Math.random() * src.length)]
-  if (!json) throw json
   let caption = `
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}hint untuk hint
@@ -21,7 +19,7 @@ Bonus: ${poin} XP
   conn.tebakgambar[id] = [
     await conn.sendFile(m.chat, json.img, 'gambar.jpg', caption, m),
     json, poin,
-    setTimeout(() => {
+    setTimeout(async () => {
       if (conn.tebakgambar[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, conn.tebakgambar[id][0])
       delete conn.tebakgambar[id]
     }, timeout)
