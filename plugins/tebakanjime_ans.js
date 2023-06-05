@@ -8,12 +8,12 @@ handler.before = async function (m) {
     if (m.quoted.id == this.tebakanime[id][0].id) {
         let json = JSON.parse(JSON.stringify(this.tebakanime[id][1]))
         if (['.wa', 'Bantuan', ''].includes(m.text)) return !0
-        if (m.text.toLowerCase() == json.jawaban.toLowerCase().trim()) {
+        if (m.text.toLowerCase() == json.result.name.toLowerCase().trim()) {
             global.db.data.users[m.sender].exp += this.tebakanime[id][2]
             this.reply(m.chat, `*Benar!* +${this.tebakanime[id][2]} XP`, m)
                      clearTimeout(this.tebakanime[id][3])
             delete this.tebakanime[id]
-        } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= 0.72) m.reply(`*Dikit Lagi!*`)
+        } else if (similarity(m.text.toLowerCase(), json.result.name.toLowerCase().trim()) >= 0.72) m.reply(`*Dikit Lagi!*`)
         else m.reply(`*Salah!*`)
     }
     return !0
