@@ -11,5 +11,3 @@ handler.tags = ['anime']
 handler.command = /^(husbu)$/i
 
 module.exports = handler
-
-let koncol = global.wm
