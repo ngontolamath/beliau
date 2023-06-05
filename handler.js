@@ -708,7 +708,7 @@ module.exports = {
                         } finally {
                             text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Selamat datang, di grup @subject\n\n@desc').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
                                 (chat.sBye || this.bye || conn.bye || 'Selamat Jalan'))
-                                this.sendFile(id, pp, text, null)
+                                this.sendFile(id, pp, 'pp.jpg', text, null)
                                 }
                     }
                 }
