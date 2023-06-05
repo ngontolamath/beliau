@@ -6,7 +6,10 @@ let handler = async (m, { conn, text }) => {
   try {
     let response = await axios.get(`https://saipulanuar.ga/api/download/ytmp3?url=${text}`)
     let result = response.data.result
-conn.sendFile(m.chat, result, null, null, m, /vn/.test(args[0]), { quoted: m, mimetype: 'audio/mp4' })
+conn.sendFile(m.chat, result, 'eror.mp3', `hore`
+.trim(), m, null, {
+  asDocument: chat.useDocument
+})
   } catch (error) {
     console.log(error)
     conn.reply(m.chat, 'Terjadi kesalahan saat mengunduh audio', m)
