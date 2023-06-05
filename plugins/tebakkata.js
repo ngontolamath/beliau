@@ -20,10 +20,10 @@ Ketik ${usedPrefix}teka untuk bantuan
 Bonus: ${poin} XP
 `.trim()
     conn.tebakkata[id] = [
-        await conn.sendBut(m.chat, caption, wm, 'Bantuan', '.teka', m),
+        await conn.reply(m.chat, caption, m),
         json, poin,
         setTimeout(async () => {
-            if (conn.tebakkata[id]) await conn.sendBut(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, wm, 'Tebak Kata', '.tebakkata', conn.tebakkata[id][0])
+            if (conn.tebakkata[id]) await conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, conn.tebakkata[id][0])
             delete conn.tebakkata[id]
         }, timeout)
     ]
