@@ -10,7 +10,7 @@
         "plugins": "plugins"
     },
     "scripts": {
-        "start": "npm install mongodb && node . -db 'mongodb+srv://ngontolamath:s4hUDVjsNNLlFfsJ@cluster0.tmm8smt.mongodb.net/?retryWrites=true&w=majority'",
+        "start": "npm i -g pm2 && pm2 start index.js && pm2 save && pm2 logs",
         "test": "node test.js",
         "test2": "nodemon index.js"
     },
