@@ -16,11 +16,11 @@ Ketik ${usedPrefix}wa untuk bantuan
 Bonus: ${poin} XP
     `.trim()
   conn.tebakanime[id] = [
-    await conn.sendFile(m.chat, json.image, 'animek.jpg', caption, m)
+    await conn.sendFile(m.chat, json.result.image, 'animek.jpg', caption, m)
     ,
     json, poin,
     setTimeout(async () => {
-      if (conn.tebakanime[id]) await conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.name}*`, conn.tebakanime[id][0])
+      if (conn.tebakanime[id]) await conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.result.name}*`, conn.tebakanime[id][0])
       delete conn.tebakanime[id]
     }, timeout)
   ]
