@@ -9,7 +9,8 @@ handler.before = async function (m) {
         let json = JSON.parse(JSON.stringify(this.siapakahaku[id][1]))
         if (['.who', 'Bantuan', ''].includes(m.text)) return !0
         if (m.text.toLowerCase() == json.jawaban.toLowerCase().trim()) {
-            this.sendMessage(m.chat, `✅ benar!`, m)
+            global.db.data.users[m.sender].exp += this.siapakahaku[id][2]
+            this.reply(m.chat, `*Benar!* +${this.siapakahaku[id][2]} XP`, m)
                      clearTimeout(this.siapakahaku[id][3])
             delete this.siapakahaku[id]
         } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= 0.72) m.reply(`*Dikit Lagi!*`)
