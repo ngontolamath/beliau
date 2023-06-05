@@ -706,7 +706,7 @@ module.exports = {
                             pp = await this.profilePictureUrl(user, 'image')
                         } catch (e) {
                         } finally {
-                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Selamat datang, di grup').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
+                            text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Selamat datang, di grup @subject\n\n@desc').replace('@subject', groupMetadata.subject).replace('@desc', groupMetadata.desc.toString()) :
                                 (chat.sBye || this.bye || conn.bye || 'Selamat Jalan'))
                                 this.sendFile(id, pp, text, null)
                                 }
