@@ -10,10 +10,9 @@ let handler = async (m, { conn, usedPrefix }) => {
         throw false
     }
     // ubah isi 'id' kalo mau ganti playlist spotifynya
-    let res = await fetch(global.API('xteam', '/game/tebaklagu/', { id: '3AaKHE9ZMMEdyRadsg8rcy' }, 'APIKEY'))
-    if (res.status !== 200) throw await res.text()
+    let res = await fetch('https://raw.githubusercontent.com/ngontolamath/Databasee/main/games/tebaklagu.json'))
     let result = await res.json()
-    let json = result.result
+    let json = result
     // if (!json.status) throw json
     let caption = `
 TEBAK JUDUL LAGU
@@ -22,17 +21,17 @@ Ketik *${usedPrefix}cek* untuk bantuan
 Bonus: ${poin} XP
 *Balas pesan ini untuk menjawab!*`.trim()
     conn.tebaklagu[id] = [
-        await conn.sendBut(m.chat, caption, wm, 'Bantuan', '.cek', m),
+        await conn.reply(m.chat, caption, m),
         json, poin,
         setTimeout(() => {
-            if (conn.tebaklagu[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.judul}*`, conn.tebaklagu[id][0])
+            if (conn.tebaklagu[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.judul}*\n*Artis*: ${json.artis}`, conn.tebaklagu[id][0])
             delete conn.tebaklagu[id]
         }, timeout)
     ]
-    await conn.sendFile(m.chat, json.preview, 'coba-lagi.mp3', '', m)
+    await conn.sendFile(m.chat, json.lagu, 'coba-lagi.mp3', '', m)
 }
 handler.help = ['tebaklagu']
 handler.tags = ['game']
 handler.command = /^tebaklagu$/i
-handler.limit = true
+handler.limit = false
 module.exports = handler
