@@ -1,40 +1,34 @@
-const fetch = require('node-fetch');
-let timeout = 120000;
-let poin = 500;
+let fetch = require('node-fetch')
 
+let timeout = 120000
+let poin = 500
 let handler = async (m, { conn, usedPrefix }) => {
-  conn.asahotak = conn.asahotak ? conn.asahotak : {};
-  let id = m.chat;
-  if (id in conn.asahotak) {
-    conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.asahotak[id][0]);
-    throw false;
-  }
-  let res = await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/asahotak.json');
-   if (!res.ok) throw eror
-    let data = await res.json()
-    let json = data[Math.floor(Math.random() * data.length)]
-  let caption = `
+    conn.asahotak = conn.asahotak ? conn.asahotak : {}
+    let id = m.chat
+    if (id in conn.asahotak) {
+        conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.asahotak[id][0])
+        throw false
+    }
+    let src = await (await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/asahotak.json')).json()
+    let json = src[Math.floor(Math.random() * src.length)]
+    let caption = `
 ${json.soal}
+
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}ao untuk bantuan
 Bonus: ${poin} XP
-  `.trim();
-  let message = await conn.reply(m.chat, caption, m);
-  conn.asahotak[id] = [
-    message,
-    data,
-    poin,
-    setTimeout(async () => {
-      if (conn.asahotak[id]) {
-        await conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, message);
-        delete conn.asahotak[id];
-      }
-    }, timeout)
-  ];
-};
+`.trim()
+    conn.asahotak[id] = [
+        await conn.reply(m.chat, caption, m),
+        json, poin,
+        setTimeout(async () => {
+            if (conn.asahotak[id]) await conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`)
+            delete conn.asahotak[id]
+        }, timeout)
+    ]
+}
+handler.help = ['asahotak']
+handler.tags = ['game']
+handler.command = /^(asahotak)$/i
 
-handler.help = ['asahotak'];
-handler.tags = ['game'];
-handler.command = /^asahotak/i;
-
-module.exports = handler;
+module.exports = handler
