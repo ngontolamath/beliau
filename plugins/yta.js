@@ -1,15 +1,12 @@
-const axios = require("axios")
+let fetch = require("fetch")
 let handler = async (m, { conn, text }) => {
   if (!text) {
     return conn.reply(m.chat, 'URL tidak ditemukan', m)
   }
   try {
-    let response = await axios.get(`https://saipulanuar.ga/api/download/ytmp3?url=${text}`)
+    let response = await fetch(`https://saipulanuar.ga/api/download/ytmp3?url=${text}`)
     let result = response.data.result
-conn.sendFile(m.chat, result, 'eror.mp3', `hore`
-.trim(), m, null, {
-  asDocument: chat.useDocument
-})
+conn.sendFile(m.chat, json.preview, 'coba-lagi.mp3', '', m)
   } catch (error) {
     console.log(error)
     conn.reply(m.chat, 'Terjadi kesalahan saat mengunduh audio', m)
