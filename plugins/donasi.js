@@ -1,9 +1,9 @@
 let handler = async m => m.reply(`
-╭─「 Donasi • Pulsa 」
-│ • XL Axiata [081934017857]
+╭─「 Donasi • Dana」
+│ • [081934017857]
 ╰────
 
-╭─「 Donasi • Non Pulsa 」
+╭─「 Donasi • Bebas 」
 │ • https://saweria.co/b3dul
 ╰────
 `.trim()) // Tambah sendiri kalo mau
