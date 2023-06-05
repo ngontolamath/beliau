@@ -11,8 +11,8 @@ let handler = async (m, { conn, usedPrefix }) => {
     }
     // ubah isi 'id' kalo mau ganti playlist spotifynya
     let res = await fetch('https://raw.githubusercontent.com/ngontolamath/Databasee/main/games/tebaklagu.json'))
-    let result = await res.json()
-    let json = result
+    let data = await res.json()
+    let json = data[Math.floor(Math.random() * data.length)]
     // if (!json.status) throw json
     let caption = `
 TEBAK JUDUL LAGU
