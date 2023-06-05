@@ -4,9 +4,9 @@ let handler = async (m, { conn, text }) => {
     return conn.reply(m.chat, 'URL tidak ditemukan', m)
   }
   try {
-    let response = await fetch(`https://saipulanuar.ga/api/download/ytmp3?url=${text}`)
-    let result = response.data.result
-conn.sendFile(m.chat, json.preview, 'coba-lagi.mp3', '', m)
+    let res = await fetch(`https://saipulanuar.ga/api/download/ytmp3?url=${text}`)
+    let json = await res.json()
+conn.sendFile(m.chat, json.result, 'inisih-eror.mp3', '', m)
   } catch (error) {
     console.log(error)
     conn.reply(m.chat, 'Terjadi kesalahan saat mengunduh audio', m)
