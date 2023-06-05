@@ -2,12 +2,12 @@ const similarity = require('similarity')
 let handler = m => m
 handler.before = async function (m) {
     let id = m.chat
-    if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !/Ketik.*who/i.test(m.quoted.text)) return !0
+    if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !/Ketik.*teka/i.test(m.quoted.text)) return !0
     this.tebakkata = this.tebakkata ? this.tebakkata : {}
     if (!(id in this.tebakkata)) return m.reply('Soal itu telah berakhir')
     if (m.quoted.id == this.tebakkata[id][0].id) {
         let json = JSON.parse(JSON.stringify(this.tebakkata[id][1]))
-        if (['.who', 'Bantuan', ''].includes(m.text)) return !0
+        if (['.teka', 'Bantuan', ''].includes(m.text)) return !0
         if (m.text.toLowerCase() == json.jawaban.toLowerCase().trim()) {
             global.db.data.users[m.sender].exp += this.tebakkata[id][2]
             this.reply(m.chat, `*Benar!* +${this.tebakkata[id][2]} XP`, m)
