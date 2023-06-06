@@ -11,8 +11,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     //}
 }
 handler.tags = ['downloader', 'dewasa']
-handler.help = ['xnxxdl'].map(k=>k+` ${inUrl}`)
-handler.command = /^(xnxx(dl)?)$/i
+handler.help = ['xnxxdl <url>']
+handler.command = /^(xnxxdl)$/i
 module.exports = handler
 
 function isUrl(url){
