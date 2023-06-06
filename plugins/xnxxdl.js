@@ -1,4 +1,4 @@
-const { xnxxdl } = require('../lib/scraper');
+const { xnxxdl } = require('./lib/scrape');
 let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (args.length < 1) throw `Masukan link video xnxx!!\n\nPenggunaan ${usedPrefix+command} _Link_`
     if (!isUrl(args[0])) throw `Masukan link video xnxx!!\n\nPenggunaan ${usedPrefix+command} _Link_`
