@@ -1,18 +1,20 @@
-//by AsuKidal
-
-let fetch = require('node-fetch')
-let fs = require('fs')
-let handler = async(m, { conn, usedPrefix, text, command }) => {
-    if (!text) throw `Harap masukkan URL sebagai teks \n\nContoh : .xnxxdl https://www.xnxx.com/video-13ezat5c/fuck_while_other_is_away`
-    let res = await fetch(`https://api.zacros.my.id/nsfw/xnxx-download?link=${text}`)
-    if (!res.ok) throw await `${res.status} ${res.statusText}`
-    let json = await res.json()
-    await conn.sendFile(m.chat, json.result.files.low, 'bkp.mp4', `Title : ${json.result.title}\nLink : ${json.result.link}\n\nVideo msih kurang HD ?coba klik link di bawah ini \n\n\nHD : ${json.result.files.high}`, m)
+const { xnxxdl } = require('../lib/scraper');
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+    if (args.length < 1) throw `Masukan link video xnxx!!\n\nPenggunaan ${usedPrefix+command} _Link_`
+    if (!isUrl(args[0])) throw `Masukan link video xnxx!!\n\nPenggunaan ${usedPrefix+command} _Link_`
+    let res = await xnxxdl(args[0])
+    m.reply(wait)
+    // try {
+    //     await conn.sendFile(m.chat, res.result.files.HLS, 'ERROR-WKWK', `*${res.result.title}* ( ${res.result.info.replace(/\n/g, "")} )`)
+    // } catch{
+       await conn.sendFile(m.chat, res.result.files.high, 'ERROR-WKWK', `*${res.result.title}* ( ${res.result.info.replace(/\n/g, "")} )`)
+    //}
 }
-handler.help = ['xnxxdl *link*']
 handler.tags = ['downloader', 'dewasa']
-handler.command = /^xnxxdl$/i
-
-handler.limit = 12
-
+handler.help = ['xnxxdl'].map(k=>k+` ${inUrl}`)
+handler.command = /^(xnxx(dl)?)$/i
 module.exports = handler
+
+function isUrl(url){
+    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
+}
