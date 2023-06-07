@@ -4,7 +4,7 @@ let handler = async (m, { conn, text }) => {
    return conn.reply(m.chat, 'URL tidak ditemukan', m);
   }
  try {
-    let response = await axios.get(`https://saipulanuar.ga/api/download/ytmp4?url=${text}`);
+    let response = await axios.get(`https://saipulanuar.cf/api/download/ytmp4?url=${text}`);
     let result = response.data.result;
     let message = `
 *Judul*: ${result.title}
