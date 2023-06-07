@@ -1,6 +1,6 @@
 let axios = require("axios");
 let handler = async(m, { conn, text }) => {
-	axios.get(`https://saipulanuar.ga/api/fakta`).then ((res) => {
+	axios.get(`https://saipulanuar.cf/api/fakta`).then ((res) => {
 	 	let hasil = `${res.data.result}`
 
     conn.reply(m.chat, hasil, m)
