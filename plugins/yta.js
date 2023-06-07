@@ -1,4 +1,4 @@
-let fetch = require("fetch")
+const fetch = require('node-fetch')
 let handler = async (m, { conn, text }) => {
   if (!text) {
     return conn.reply(m.chat, 'URL tidak ditemukan', m)
