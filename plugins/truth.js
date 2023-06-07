@@ -1,6 +1,6 @@
 let fetch = require('node-fetch')
 let handler  = async (m, { conn }) => {
-  conn.sendBut(m.chat, `${pickRandom(global.truth)}`, `ini wm`, 'Truth', `.truth`, m)
+  conn.reply(m.chat, `${pickRandom(global.truth)}`, m)
 }
 handler.help = ['truth']
 handler.tags = ['game']
