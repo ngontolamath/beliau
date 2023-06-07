@@ -7,7 +7,7 @@ let handler = async (m, { conn, command, args }) => {
   let full = /f$/i.test(command)
   if (!args[0]) return conn.reply(m.chat, 'Tidak ada url', m)
   let url = /https?:\/\//.test(args[0]) ? args[0] : 'https://' + args[0]
-  let ss = await (await fetch('https://saipulanuar.ga/api/download/ssweb?url=' + encodeURIComponent(url))).buffer()
+  let ss = await (await fetch('https://saipulanuar.cf/api/download/ssweb?url=' + encodeURIComponent(url))).buffer()
   conn.sendFile(m.chat, ss, 'screenshot.png', url, m)
 }
 handler.help = ['ssweb', 'ss'].map(v => v + ' <url>')
