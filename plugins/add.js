@@ -5,9 +5,9 @@ let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsap
 
 await conn.groupParticipantsUpdate(m.chat, [users], 'add').catch(console.log)
 }
-handler.help = ['tambah'].map(v => v + ' @user')
+handler.help = ['addmem'].map(v => v + ' nomor')
 handler.tags = ['group']
-handler.command = /^(tambah)$/i
+handler.command = /^(addmem)$/i
 
 handler.owner = false
 handler.group = true
