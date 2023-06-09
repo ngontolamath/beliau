@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix }) => {
         conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', conn.susunkata[id][0])
         throw false
     }
-    let res = await fetch('https://raw.githubusercontent.com/BochilTeam/database/master/games/susunkata.json')
+    let res = await fetch('https://raw.githubusercontent.com/ngontolamath/Databasee/main/games/susunkata.json')
     if (!res.ok) throw eror
     let data = await res.json()
     let json = data[Math.floor(Math.random() * data.length)]
